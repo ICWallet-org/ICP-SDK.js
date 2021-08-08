@@ -1,0 +1,61 @@
+{
+  "name": "icp-sdk",
+  "version": "0.6.0",
+  "main": "./index.js",
+  "browser": "dist/icp.umd.js",
+  "license": "Apache-2.0",
+  "author": "DFINITY Stiftung <sdk@dfinity.org>",
+  "keywords": [
+    "rosetta",
+    "dfinity",
+    "internet-computer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dfinity/rosetta-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dfinity/rosetta-client/issues"
+  },
+  "homepage": "https://github.com/dfinity/rosetta-client",
+  "scripts": {
+    "build": "patch-package && webpack --entry ./src/index.js --mode production --no-optimization-minimize --no-output-iife --output-library-type commonjs --progress --target node"
+  },
+  "files": [
+    "autogen",
+    "src",
+    "index.js"
+  ],
+  "dependencies": {
+    "@dfinity/candid": "^0.9.1",
+    "@dfinity/principal": "^0.9.1",
+    "axios": "^0.21.1",
+    "bip39": "^3.0.4",
+    "cbor": "^7.0.5",
+    "crc": "^3.8.0",
+    "google-protobuf": "^3.17.3",
+    "js-sha256": "^0.9.0",
+    "json-bigint": "^1.0.0",
+    "node-fetch": "^2.6.1",
+    "node-forge": "^0.10.0",
+    "qs": "^6.10.1",
+    "scrypt-js": "^2.0.4",
+    "crypto-js": "^3.1.9-1",
+    "tweetnacl": "^1.0.3"
+  },
+  "devDependencies": {
+    "0x": "^4.10.2",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^5.2.0",
+    "uuid": "^3.3.3",
+    "node-inspect-extracted": "^1.0.7",
+    "patch-package": "^6.4.7",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-merge": "^4.2.1"
+  }
+}

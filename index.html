@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<h1> ICP Bridge</h1>
+<button onclick="alert('Hello world!')">Alert Toast</button>
+
+<body>
+  <script type="text/javascript" src="./dist/icp.umd.js"></script>
+  <script>
+
+    const AICPWallet = window.AICPWallet;
+    const {
+      mnemonic,
+      seed,
+      keyPair,
+      priHex,
+      address
+    } = AICPWallet.wallet.getWalletByMnemonic('omit media claim carbon own child yellow wall divorce master knife motion')
+    console.log("mnemonic = ", mnemonic);
+    console.log("seed = ", seed);
+    console.log("priHex = ", priHex);
+    console.log("address = ", address);
+    const keySotre = AICPWallet.KeyStore.encrypt(priHex,'111111111')
+    console.log("keySotre = ", keySotre);
+
+    const icp = new AICPWallet();
+    setTimeout(function () {
+      icp.signTransation(priHex, 1n, '1e1838071cb875e59c1da64af5e04951bb3c1e94c1285bf9ff7480a645e1aa56', 10000n)
+      // log('signTransation', { 'status': status }, 'native')
+    }, 5000);
+
+    window.onerror = function (message, url, line, column, error) {
+      console.log("window.onerror = ", message, url, line, column, error);
+    }
+    var uniqueId = 1
+    function log(message, data, type) {
+      var el = document.createElement('div')
+      el.className = type == 'native'
+        ? 'logLine_Native'
+        : 'logLine_JS'
+      el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+      document.body.appendChild(el)
+    }
+  // function fromFlutter(newTitle) {
+  //   alert(newTitle)
+  //   // document.getElementById("title").innerHTML = newTitle;
+  //   log("fromFlutter", "{}", "native")
+  //   sendBack();
+  // }
+  // function sendBack() {
+  //   const seed = "2eb35d33f2c69586d26e297320748bc636c21d0090b82d900e7e7a19feef36c58a04b63b89d53cf57e30384d23b282f29561ae47f0a51c8f3707ce80736242f3";
+  //   console.log("seed.length = ", seed.length);
+  //   privateKey = icp.newKeyFormSeed(seed);
+
+  //   console.log("createNewWallet = ", privateKey);
+  // }
+  </script>
+</body>
+
+</html>
